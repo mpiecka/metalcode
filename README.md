@@ -66,12 +66,8 @@ Finally, the code will ask the user to specify additional parameters once it has
 been launched.
 
 1. **Photometric system:** Enter G, J or 2 (depending on the photometric system for which the data are available, see above for details).
-2. **Isochrone grid spacing, delta_logAge:** In the current version, the user can choose between two spacings in the isochrone grid (0.1 or 0.2).
-3. **Isochrone grid spacing, delta_Z:** In the current version, use only value 0.005 (can be changed by the user, but the set of isochrones should be changed accordingly, if necessary).
-4. **Number of reddening iterations, Nredd:** The number of reddening values that should be studied by the code. Choose 1 if you want to use only the initial estimate value. For 0, a predetermined set of ten values is used. Otherwise, use any odd number larger than 1.
-5. **Reddening range:** The relative range for reddening iterations. For example, if 0.3 is given and `Nredd` > 1, then the code will start at the value `0.7*E(B-V)_ini` and end at `1.3*E(B-V)`. The value of the initial estimate is always included (if `Nredd` >= 1). Values between 0 and 1 are acceptable, excluding the limits.
-6. **Maximum number of iterations, Niter:** Determines the maximum number of iterations
-   while searching for metallicity for a given reddening value. Necessary
-   because the code may get stuck between two possible solutions. Should not be
-   a large number, because the number of iterations is typically smaller than
-   five. We recommend using 6 for the currently included grids.
+2. **Isochrone grid spacing, `delta_logAge`:** In the current version, the user can choose between two spacings in the isochrone grid (0.1 or 0.2).
+3. **Isochrone grid spacing, `delta_Z`:** In the current version, use only value 0.005 (can be changed by the user, but the set of isochrones should be changed accordingly, if necessary).
+4. **Number of reddening iterations, `Nredd`:** The number of reddening values that should be studied by the code. Choose 1 if you want to use only the initial estimate value `E(B-V)_ini`. For 0, a predetermined set of ten values is used. Otherwise, use any odd number larger than 1.
+5. **Reddening range, `redAdj`:** The relative range for reddening iterations. For example, if 0.3 is given and `Nredd` > 1, then the code will start at the value `0.7*E(B-V)_ini` and end at `1.3*E(B-V)_ini`. The value of the initial estimate is always included (if `Nredd` >= 1). Values between 0 and 1 are acceptable, excluding the limits.
+6. **Maximum number of iterations, `Niter`:** Determines the maximum number of iterations while searching for metallicity for a given reddening value. Necessary because the code may get stuck between two possible solutions. A large number is not advised, because the number of iterations is typically smaller than five. We recommend using 6 for the currently included grids.
