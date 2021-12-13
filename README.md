@@ -92,4 +92,4 @@ We would like to point out that the currently included fitting technique was pre
 
 
 ## Acknowledgements
-The work was supported from Operational Programme Research, Development and Education -- ,,Project Internal Grant Agency of Masaryk University'' (No. CZ.02.2.69/0.0/0.0/19\_073/0016943).
+The work was supported from Operational Programme Research, Development and Education - ,,Project Internal Grant Agency of Masaryk University'' (No. CZ.02.2.69/0.0/0.0/19\_073/0016943).
