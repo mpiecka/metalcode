@@ -7,10 +7,10 @@ This is the version 1.0 of the automated version of the procedure devised by Pö
 
 The run-time of the code will depend on the total number of clusters in the included list, on the number of cluster members, and on the user input parameters. For example, if user inputs:
 
-* delta_logAge = 0.2
-* delta_Z = 0.005
-* Nredd = 5
-* Niter = 6
+* `age_step` = 0.2
+* `z_step` = 0.005
+* `Nredd` = 5
+* `Niter` = 6
 
 code will return results within 1-2 min for a typical open cluster. However, it can run for longer in the case of a larger cluster (for the included example of NGC 6791, the code returned results after 20 min). Furthermore, the specific run-time is also hardware-dependent (the code was tested on AMD Ryzen 3 PRO 4450U).
 
@@ -65,9 +65,9 @@ We strongly suggest that the users pre-analyse the colour-magnitude diagrams. Ob
 Finally, the code will ask the user to specify additional parameters once it has
 been launched.
 
-1. **Photometric system:** Enter G, J or 2 (depending on the photometric system for which the data are available, see above for details).
-2. **Isochrone grid spacing, `delta_logAge`:** In the current version, the user can choose between two spacings in the isochrone grid (0.1 or 0.2).
-3. **Isochrone grid spacing, `delta_Z`:** In the current version, use only value 0.005 (can be changed by the user, but the set of isochrones should be changed accordingly, if necessary).
-4. **Number of reddening iterations, `Nredd`:** The number of reddening values that should be studied by the code. Choose 1 if you want to use only the initial estimate value `E(B-V)_ini`. For 0, a predetermined set of ten values is used. Otherwise, use any odd number larger than 1.
-5. **Reddening range, `redAdj`:** The relative range for reddening iterations. For example, if 0.3 is given and `Nredd` > 1, then the code will start at the value `0.7*E(B-V)_ini` and end at `1.3*E(B-V)_ini`. The value of the initial estimate is always included (if `Nredd` >= 1). Values between 0 and 1 are acceptable, excluding the limits.
-6. **Maximum number of iterations, `Niter`:** Determines the maximum number of iterations while searching for metallicity for a given reddening value. Necessary because the code may get stuck between two possible solutions. A large number is not advised, because the number of iterations is typically smaller than five. We recommend using 6 for the currently included grids.
+1. **Photometric system**: Enter G, J or 2 (depending on the photometric system for which the data are available, see above for details).
+2. **Isochrone grid spacing,** `age_step`: In the current version, the user can choose between two spacings in the isochrone grid (0.1 or 0.2).
+3. **Isochrone grid spacing,** `z_step`: In the current version, use only value 0.005 (can be changed by the user, but the set of isochrones should be changed accordingly, if necessary).
+4. **Number of reddening iterations**, `Nredd`: The number of reddening values that should be studied by the code. Choose 1 if you want to use only the initial estimate value `E(B-V)_ini`. For 0, a predetermined set of ten values is used. Otherwise, use any odd number larger than 1.
+5. **Reddening range,** `redAdj`: The relative range for reddening iterations. For example, if `redAdj` = 0.3 is given and `Nredd` > 1, then the code will start at the value `0.7*E(B-V)_ini` and end at `1.3*E(B-V)_ini`. The value of the initial estimate is always included (if `Nredd` >= 1). Values between 0 and 1 are acceptable, excluding the limits.
+6. **Maximum number of iterations,** `Niter`: Determines the maximum number of iterations while searching for metallicity for a given reddening value. Necessary because the code may get stuck between two possible solutions. A large number is not advised, because the number of iterations is typically smaller than five. We recommend using `Niter` = 6 for the currently included grids.
