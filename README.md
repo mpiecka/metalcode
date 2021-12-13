@@ -81,7 +81,7 @@ First of all, the solutions for different assumed reddening values will generall
 Secondly, the figures (CMD and LTN diagram) for the three best solutions are plotted saved in the `finished` folder. These figures should be consulted before interpreting the results.
 
 
-## SUBPROCEDURES
+## Sub-procedures
 Details regarding the sub-procedures can be found in our paper. We would like to point out here that most of the sub-procedure can be easily exchanged. For example, the sub-procedures `metalcode_calib_absmg` and `metalcode_calib_clrex` are used to apply steps that deredden the colour and correct the brightness for the extinction. The transformation coefficients can be exchanged by the user (if required).
 
 Furthermore, we use pre-prepared set of polynomial relation in order to calculate Teff and BC for a given combination of the colour and metallicity values. These calibrations were based on the isochrones themselves (and may slightly differ from the empirical, observation-based, relations found in the literature). If the user wishes to replace the relations, sets of polynomial coefficients have to be replaced in `metalcode_calib_tempe`. Because of how our code works, the user should prepare the coefficients for the different Z values, starting from Z=0.001 up to Z=0.040 (in the current version), with delta_Z=0.001.
@@ -91,5 +91,5 @@ Finally, the isochrone fitting technique is based only on a simple least-square 
 We would like to point out that the currently included fitting technique was prepared only the for testing purposes, and it may not be sophisticated enough to produce results for proper scientific analysis. We urge the user to replace this sub-procedure if possible. In the future updates, we will replace this sub-procedure ourselves so that the code can be used for a scientific work right out of the box.
 
 
-## ACKNOWLEDGEMENTS
+## Acknowledgements
 The work was supported from Operational Programme Research, Development and Education -- ,,Project Internal Grant Agency of Masaryk University'' (No. CZ.02.2.69/0.0/0.0/19\_073/0016943).
