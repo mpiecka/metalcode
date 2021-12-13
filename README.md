@@ -38,7 +38,7 @@ To launch the tool, run the script `metalcode_v1_0.py`. For successful applicati
 ## Input
 We describe several data files in this section of the documentation. As column separation, we use spaces between values. Furthermore, isochrone grids are required for the code to run. The included grids (logAge=6.6..10.0, Z=0.005..0.040, delta_logAge=0.1, delta_Z=0.005) are for the three photometric systems described below. The isochrones should be included in the main folder, the other files (described below) should be located in the `clusters` folder.
 
-On the input, user must provide a file containing the list of clusters together with additional parameters. The structure of the file adheres to the following format (the first line of the file is skipped on loading):
+On the input (before the code is executed), the user must provide a file containing the list of clusters together with additional parameters (`\_complete.txt` in `clusters` folder). The structure of this file adheres to the following format (the first line of the file is skipped on loading):
 
 ```
 CLUSTER_NAME   GAL_LATITUDE_deg   PARALLAX_mas   DISTANCE_pc   E(B-V)_mag
@@ -89,6 +89,16 @@ Furthermore, we use pre-prepared set of polynomial relation in order to calculat
 Finally, the isochrone fitting technique is based only on a simple least-square method. In order to use any other technique, one should alter the file "metalcode_calc_lstsqr". The only requirement is that `LstSqr()` from this sub-procedure returns a quality-of-fit value that needs to be minimised.
 
 We would like to point out that the currently included fitting technique was prepared only the for testing purposes, and it may not be sophisticated enough to produce results for proper scientific analysis. We urge the user to replace this sub-procedure if possible. In the future updates, we will replace this sub-procedure ourselves so that the code can be used for a scientific work right out of the box.
+
+
+## Examples
+We include a list of ten examples of open clusters that we analysed in our work. The observational data for the individual clusters were taken from the following sources:
+
+* Gaia: cluster members (p>=0.70) from Cantat-Gaudin &amp; Anders (2020, https://ui.adsabs.harvard.edu/abs/2020A%26A...633A..99C/abstract). The same source was used to get the cluster parameters included in `\_complete.txt`, except for NGC 1039, where we had to use the reddening value from Dias et al. (2021, https://ui.adsabs.harvard.edu/abs/2021MNRAS.504..356D/abstract).
+* 2MASS: the same cluster members as for Gaia. These stars were located using the positions (on the sky) from the list of the Gaia members.
+* Johnson: we have used the data sets included in WEBDA.
+
+All data files were manually pre-filtered in order to remove binary sequences, white dwarfs, and other possible outliers. A clear sequence of stars (main sequence + giants) is required with the currently introduced isochrone fitting sub-procedure.
 
 
 ## Acknowledgements
