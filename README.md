@@ -18,6 +18,25 @@ See Piecka & Paunzen (submitted) for a full description of the methods applied i
 
 
 ## Requirements
-In order to run the code, user must have installed Python 3 with `numpy`. The other libraries (matplotlib, time, os) are not required for the proper functionality of the code, but they provided additional information which may be useful.
+In order to run the code, user must have installed Python 3 with `numpy`. The other libraries (`matplotlib`, `time`, `os`) are not required for the proper functionality of the code, but provide additional information useful information (e.g. figures).
 
-The code was prepared for Windows 10, although it is also tested and usable on Linux. To make it work, only the lines depending on the os library need to be changed.
+The code was tested on the following operating systems:
+
+* Windows 10
+* Ubuntu 20.04 LTS
+* Fedora 34
+
+
+## Installation
+Only Python 3 and the mentioned libraries need to be installed. Otherwise, no additional installation is needed.
+
+
+## Usage
+To launch the tool, run the script `metalcode_v1_0.py`. For successful application of the tool, a cluster list and the associated data files need to be included prior to running the script.
+
+
+## Input
+```
+CLUSTER_NAME   GAL_LATITUDE_deg   PARALLAX_mas   DISTANCE_pc   E(B-V)_mag
+...            ...                ...            ...           ...
+```
