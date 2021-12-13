@@ -47,7 +47,7 @@ CLUSTER_NAME   GAL_LATITUDE_deg   PARALLAX_mas   DISTANCE_pc   E(B-V)_mag
 
 The cluster name should be written as one word (spaces should be replaced by underscores). Galactic latitude and parallax are not necessary - they should be used only if reddening is taken from extinction maps (in that case, `expcor` parameter in the code should be changed to 1). If the reddening value is not known and there is no good guess, set the value to be any negative value. The code will then use a pre-determined set of reddening values (in magnitudes: 0.010, 0.040, 0.080, 0.125, 0.250, 0.500, 0.750, 1.000, 1.500, 2.000).
 
-Secondly, a set of files containing cluster data is required. The cluster data should be provided for the specific photometric system, and the file name should coincide with `CLUSTER_NAME_X`, where the suffix should correspond to the following:
+Secondly, a set of files containing cluster data is required. The cluster data should be provided for the specific photometric system, and the file name should coincide with `CLUSTER_NAME_X`, where the suffix `X` should be replaced by the following:
 
 * `G` for Gaia (G, BP-RP)
 * `2` for 2MASS (J, J-Ks)
@@ -59,3 +59,30 @@ The first line of the data file is skipped. The columns should follow the given 
 PHOTOMETRIC_BRIGHTNESS   PHOTOMETRIC_COLOUR
 ...                      ...
 ```
+
+We strongly suggest that the users pre-analyse the colour-magnitude diagrams. Obvious binary sequences, white dwarfs, and possible other clear outliers should be removed in advance. This is necessary in the current version of the code due to the limitations of the included isochrone fitting sub-procedure.
+
+Finally, the code will ask the user to specify additional parameters once it has
+been launched.
+
+1. **Photometric system:** Enter G, J or 2 (depending on the photometric system
+   for which the data are available; see Photometric System table).
+2. **Isochrone grid spacing, age:** In the current version, the user can choose
+   between two spacings in the isochrone grid (0.1 or 0.2).
+3. **Isochrone grid spacing, Z:** In the current version, use only values 0.005
+   (can be changed by the user, but the set of isochrones should be changed
+   accordingly, if necessary).
+4. **Number of reddening iterations:** The number of reddening values that
+   should be studied by the code. Choose 1 if you want to study only the initial
+   estimate value. For 0, a predetermined set of ten values is used. Otherwise,
+   use an odd number.
+5. **Reddening range:** The relative range for reddening iterations. For
+   example, if 0.3 is given and `Nredd` > 1, then the code will start at the
+   value `0.7*E(B-V)_ini` and ends at `1.3*E(B-V)`. The value of the initial
+   estimate is always included (if `Nredd` >= 1). Values between 0 and 1 are
+   acceptable, excluding the limits.
+6. **Maximum number of iterations:** Determines the maximum number of iterations
+   while searching for metallicity for a given reddening value. Necessary
+   because the code may get stuck between two possible solutions. Should not be
+   a large number, because the number of iterations is typically smaller than
+   five. We recommend using 6 for the currently included grids.
