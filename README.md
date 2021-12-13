@@ -94,12 +94,10 @@ We would like to point out that the currently included fitting technique was pre
 ## Acknowledgements
 The work was supported from Operational Programme Research, Development and Education - ,,Project Internal Grant Agency of Masaryk University'' (No. CZ.02.2.69/0.0/0.0/19\_073/0016943).
 
-This work is dedicated to Harald Pöhnl who died during its preparation. We thank Martin Netopil for his comments and for helping us to achieve better precision in the Gaia photometric system. 
-
-This work makes use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC, \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.
+This work makes use of data from the European Space Agency (ESA) mission Gaia (https://www.cosmos.esa.int/gaia), processed by the Gaia Data Processing and Analysis Consortium (DPAC, https://www.cosmos.esa.int/web/gaia/dpac/consortium). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the Gaia Multilateral Agreement.
 
 This work makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
 
-This research has made use of the WEBDA database, operated at the Department of Theoretical Physics and Astrophysics of the Masaryk University.
+This research has made use of the WEBDA database (https://webda.physics.muni.cz), operated at the Department of Theoretical Physics and Astrophysics of the Masaryk University.
 
 The isochrones were taken from http://stev.oapd.inaf.it/cgi-bin/cmd_3.5 (using default settings, except for the choice of the passbands).
