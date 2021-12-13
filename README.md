@@ -7,10 +7,10 @@ This is the version 1.0 of the automated version of the procedure devised by Pö
 
 The run-time of the code will depend on the total number of clusters in the included list, on the number of cluster members, and on the user input parameters. For example, if user inputs:
 
-* `age_step` = 0.2
-* `z_step` = 0.005
-* `Nredd` = 5
-* `Niter` = 6
+* `age_step`=0.2
+* `z_step`=0.005
+* `Nredd`=5
+* `Niter`=6
 
 code will return results within 1-2 min for a typical open cluster. However, it can run for longer in the case of a larger cluster (for the included example of NGC 6791, the code returned results after 20 min). Furthermore, the specific run-time is also hardware-dependent (the code was tested on AMD Ryzen 3 PRO 4450U).
 
@@ -70,4 +70,26 @@ been launched.
 3. **Isochrone grid spacing,** `z_step`: In the current version, use only value 0.005 (can be changed by the user, but the set of isochrones should be changed accordingly, if necessary).
 4. **Number of reddening iterations**, `Nredd`: The number of reddening values that should be studied by the code. Choose 1 if you want to use only the initial estimate value `E(B-V)_ini`. For 0, a predetermined set of ten values is used. Otherwise, use any odd number larger than 1.
 5. **Reddening range,** `redAdj`: The relative range for reddening iterations. For example, if `redAdj`=0.3 is given and `Nredd` > 1, then the code will start at the value `0.7*E(B-V)_ini` and end at `1.3*E(B-V)_ini`. The value of the initial estimate is always included (if `Nredd`>=1). Values between 0 and 1 are acceptable, excluding the limits.
-6. **Maximum number of iterations,** `Niter`: Determines the maximum number of iterations while searching for metallicity for a given reddening value. Necessary because the code may get stuck between two possible solutions. A large number is not advised, because the number of iterations is typically smaller than five. We recommend using `Niter` = 6 for the currently included grids.
+6. **Maximum number of iterations,** `Niter`: Determines the maximum number of iterations while searching for metallicity for a given reddening value. Necessary because the code may get stuck between two possible solutions. A large number is not advised, because the number of iterations is typically smaller than five. We recommend using `Niter`=6 for the currently included grids.
+
+
+## Output
+The code provides all of the useful information on the output. If `debugTest` is set to True, the code will return additional information about the individual cluster members (values used in calculations, usually only required for debugging).
+
+First of all, the solutions for different assumed reddening values will generally differ. For this, we include the results for all of the reddening values in a log-file in the `finished` folder. Included are the user input parameters, resulting cluster parameters (together with the quality-of-fit value, that should be minimised in the code) and the run-time for each of the individual clusters.
+
+Secondly, the figures (CMD and LTN diagram) for the three best solutions are plotted saved in the `finished` folder. These figures should be consulted before interpreting the results.
+
+
+## SUBPROCEDURES
+Details regarding the sub-procedures can be found in our paper. We would like to point out here that most of the sub-procedure can be easily exchanged. For example, the sub-procedures `metalcode_calib_absmg` and `metalcode_calib_clrex` are used to apply steps that deredden the colour and correct the brightness for the extinction. The transformation coefficients can be exchanged by the user (if required).
+
+Furthermore, we use pre-prepared set of polynomial relation in order to calculate Teff and BC for a given combination of the colour and metallicity values. These calibrations were based on the isochrones themselves (and may slightly differ from the empirical, observation-based, relations found in the literature). If the user wishes to replace the relations, sets of polynomial coefficients have to be replaced in `metalcode_calib_tempe`. Because of how our code works, the user should prepare the coefficients for the different Z values, starting from Z=0.001 up to Z=0.040 (in the current version), with delta_Z=0.001.
+
+Finally, the isochrone fitting technique is based only on a simple least-square method. In order to use any other technique, one should alter the file "metalcode_calc_lstsqr". The only requirement is that `LstSqr()` from this sub-procedure returns a quality-of-fit value that needs to be minimised.
+
+We would like to point out that the currently included fitting technique was prepared only the for testing purposes, and it may not be sophisticated enough to produce results for proper scientific analysis. We urge the user to replace this sub-procedure if possible. In the future updates, we will replace this sub-procedure ourselves so that the code can be used for a scientific work right out of the box.
+
+
+## ACKNOWLEDGEMENTS
+The work was supported from Operational Programme Research, Development and Education -- ,,Project Internal Grant Agency of Masaryk University'' (No. CZ.02.2.69/0.0/0.0/19\_073/0016943).
