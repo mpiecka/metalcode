@@ -18,6 +18,6 @@ See Piecka & Paunzen (submitted) for a full description of the methods applied i
 
 
 ## Requirements
-In order to run the code, user must have installed Python 3 with numpy. The other libraries (matplotlib, time, os) are not required for the proper functionality of the code, but they provided additional information which may be useful.
+In order to run the code, user must have installed Python 3 with 'numpy'. The other libraries (matplotlib, time, os) are not required for the proper functionality of the code, but they provided additional information which may be useful.
 
 The code was prepared for Windows 10, although it is also tested and usable on Linux. To make it work, only the lines depending on the os library need to be changed.
